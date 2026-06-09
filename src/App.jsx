@@ -26,7 +26,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('standings');
   const { data, loading, error, reload } = useLeagueData(season);
 
-  const leagueName = data?.currentSeasonData?.league?.name || 'The Ragtag Band of Misfits';
+  const leagueName = data?.currentSeasonData?.league?.name || 'The PFFL';
   const totalGames = data?.allGames?.length || 0;
 
   return (
@@ -35,18 +35,7 @@ export default function App() {
         <div className="header-inner">
           <div className="header-title">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <h1 className="league-name">
-                {leagueName.includes('Misfits')
-                  ? <>{leagueName.replace('Misfits', '')}<span style={{
-                      background: 'linear-gradient(135deg, #f5c518 0%, #e8a804 40%, #c47d00 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                      textShadow: 'none',
-                      filter: 'drop-shadow(0 0 8px rgba(232,168,4,0.5))',
-                    }}>Misfits</span></>
-                  : leagueName}
-              </h1>
+              <h1 className="league-name">{leagueName}</h1>
             </div>
             <p className="league-sub">
               Dynasty
